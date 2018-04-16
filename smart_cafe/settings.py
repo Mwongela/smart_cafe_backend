@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import dj_database_url
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -74,12 +76,20 @@ WSGI_APPLICATION = 'smart_cafe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # django.db.backends.postgresql_psycopg2 django.db.backends.mysql
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'smart_cafe',
+        'USER': 'mwongela',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation

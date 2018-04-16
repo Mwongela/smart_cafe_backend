@@ -1,1 +1,1 @@
-# smart_cafe_backend
+# Smart Cafe
