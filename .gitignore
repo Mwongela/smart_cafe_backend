@@ -4,3 +4,4 @@ venv/
 migrations
 staticfiles
 media
+bower_components
