@@ -148,4 +148,8 @@ ADMIN_EMAIL = [
 # Media
 MANAGERS = ADMIN_EMAIL
 
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/login/'
+
 
