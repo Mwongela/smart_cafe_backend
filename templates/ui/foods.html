@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
+{% block page-title %}Food{% endblock %}
+{% block breadcrumbs %}
+    <a href="{% url 'smart_cafe_ui:index' %}">Dashboard</a>
+    &raquo;
+    <a href="{% url 'smart_cafe_ui:foods' %}">Food</a>
+{% endblock %}
+
 {% block content %}
-    <h1>Foods</h1>
+
+    <div class="row">
+        <div class="col-12">
+            something
+        </div>
+    </div>
+
 {% endblock %}

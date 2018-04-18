@@ -34,6 +34,36 @@ body {
     color: #000;
 }
 
+.page-title {
+    padding: 10px 1.7rem 0;
+    margin: 0;
+}
+
+.title-text h1 {
+    font-size: 28px;
+    color: #0b2e13;
+}
+
+.breadcrumbs {
+    text-align: right;
+    font-size: 14px;
+}
+
+.breadcrumbs a:last-child {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+}
+
+.content-wrapper {
+    padding: 0.5rem 1.7rem;
+}
+
+.navbar-brand-wrapper {
+    border-bottom: 1px dashed #1991EB;
+}
+
 @media (max-width: 991px) {
     .navbar .navbar-menu-wrapper {
         width: calc(100% - 75px);;

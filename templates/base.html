@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %}CHANGE TITLE{% endblock %}</title>
+    <title>{% block title %}Smart Cafe{% endblock %}</title>
 
     {% block styles %}
         <link rel="stylesheet" href="{% static 'bower_components/mdi/css/materialdesignicons.min.css' %}">
@@ -27,7 +27,7 @@
                     <h1 class="text-dark">Smart<span style="font-weight: 100" class="text-primary">Cafe</span></h1>
                 </a>
                 <a class="navbar-brand brand-logo-mini" href="{% url 'smart_cafe_ui:index' %}">
-                    <h1 class="text-primary">S<span style="font-weight: 100">C</span></h1>
+                    <h1 class="text-dark">S<span style="font-weight: 100" class="text-primary">C</span></h1>
                 </a>
             </div>
 
@@ -75,7 +75,7 @@
                                             {% endif %}
                                         </span>
                                     </p>
-{#                                    <p class="designation">{{ request.user.email }}</p>#}
+                                    {#                                    <p class="designation">{{ request.user.email }}</p>#}
                                     <a href="{% url 'logout' %}" class="btn btn-primary mt-3">Logout</a>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                             </a>
                         </li>
 
-                    <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'smart_cafe_ui:menus' %}">
                                 <img class="menu-icon"
                                      src="{% static 'imgs/icons/menu.png' %}"
@@ -108,7 +108,7 @@
                             </a>
                         </li>
 
-                    <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'smart_cafe_ui:orders' %}">
                                 <img class="menu-icon"
                                      src="{% static 'imgs/icons/order-food.png' %}"
@@ -122,11 +122,23 @@
             </nav>
 
             <div class="main-panel">
+                <div class="row page-title">
+                    <div class="col-12 col-md-8 title-text">
+                        <h1 class="">{% block page-title %}Sample title{% endblock %}</h1>
+                    </div>
+                    <div class="col-12 col-md-4 text-muted breadcrumbs">
+                        {% block breadcrumbs %}
+                            <a href="#">Dashboard</a>
+                            &raquo;
+                            <a href="#">Food</a>
+                        {% endblock %}
+                    </div>
+                </div>
+
                 <div class="content-wrapper">
                     {% block content %}{% endblock %}
                 </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
+
                 <footer class="footer">
                     <div class="container-fluid clearfix">
                         {% block footer %}
