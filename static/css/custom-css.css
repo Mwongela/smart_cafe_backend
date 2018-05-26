@@ -64,6 +64,21 @@ body {
     border-bottom: 1px dashed #1991EB;
 }
 
+
+.food-image {
+    max-width: 120px !important;
+    max-height: 120px !important;
+    object-fit: cover;
+}
+
+.card-title {
+    text-transform: none;
+}
+
+.table input, .table select {
+    width: 100% !important;
+}
+
 @media (max-width: 991px) {
     .navbar .navbar-menu-wrapper {
         width: calc(100% - 75px);;

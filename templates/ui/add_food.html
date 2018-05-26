@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block page-title %}Add Food{% endblock %}
+{% block breadcrumbs %}
+    <a href="{% url 'smart_cafe_ui:index' %}">Dashboard</a>
+    &raquo;
+    <a href="{% url 'smart_cafe_ui:foods' %}">Food</a>
+    &raquo;
+    <a href="{% url 'smart_cafe_ui:add_food' %}">Add Food</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row justify-content-md-center">
+        <div class="col-12 col-md-6">
+            <form action="" method="post" enctype="multipart/form-data" style="display: flex; flex-flow: column;">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <ul>
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                {% for hidden_field in form.hidden_fields %}
+                    {% if hidden_field.errors %}
+                        <ul>
+                            {% for error in hidden_field.errors %}
+                                <li>(Hidden field {{ hidden_field.name }}) {{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {{ hidden_field }}
+                {% endfor %}
+
+                <div class="table-responsive">
+                    <table class="table">
+                        {% for field in form.visible_fields %}
+                            <tr>
+                                <td>{{ field.label_tag }}</td>
+                                <td>
+                                    {% if field.errors %}
+                                        <ul>
+                                            {% for error in field.errors %}
+                                                <li>{{ error }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    {{ field }}
+                                    {% if field.help_text %}
+                                        <br/>{{ field.help_text }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+
+                <input type="submit" value="Save"
+                       style="display: flex; justify-content: flex-end; align-self: flex-end; margin: 0.8375rem"
+                        class="btn btn-primary"/>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

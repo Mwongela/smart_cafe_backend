@@ -8,6 +8,7 @@ from model_utils.models import TimeStampedModel
 class FoodCategory(TimeStampedModel):
     name = models.CharField(max_length=256, blank=False, null=False)
     description = models.TextField(blank=True)
+    archived = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -19,6 +20,7 @@ class Food(TimeStampedModel):
     price = models.FloatField(blank=False, null=False)
     image = models.ImageField(upload_to='food_imgs', default='static/imgs/default-image-landscape.png')
     category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE)
+    archived = models.BooleanField(default=False)
 
     def __str__(self):
         return '{} (KES{})'.format(self.name, self.price)
@@ -27,6 +29,7 @@ class Food(TimeStampedModel):
 class MenuCategory(TimeStampedModel):
     name = models.CharField(max_length=256, blank=False, null=False)
     description = models.TextField()
+    archived = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -36,6 +39,7 @@ class Menu(TimeStampedModel):
     date = models.DateField()
     time = models.TimeField()
     category = models.ForeignKey(MenuCategory, on_delete=models.CASCADE)
+    archived = models.BooleanField(default=False)
 
     def __str__(self):
         return '{} ({}, {})'.format(self.category.name, self.date, self.time)
