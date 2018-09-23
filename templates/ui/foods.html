@@ -10,22 +10,10 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-12">
-            <div class="card">
+        <div class="col-12 col-md-8">
+            <div class="card food-list">
                 <div class="card-body">
-                    <div class="card-title text-muted">
-                        <div class="row">
-                            <div class="col">
-                                <p>List of all available food</p>
-                            </div>
-                            <div class="col">
-                                <a href="{% url 'smart_cafe_ui:add_food' %}" class="btn btn-primary float-right">
-                                    <i class="mdi mdi-plus-box"></i>
-                                    Add Food
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="table-responsive">
                         <table class="table center-aligned-table">
                             <thead>
@@ -35,7 +23,6 @@
                                 <th>Calories</th>
                                 <th>Price</th>
                                 <th>Category</th>
-                                <th>Archived</th>
                                 <th>#</th>
                             </tr>
                             </thead>
@@ -57,12 +44,10 @@
                                     <td>{{ food.calories }}</td>
                                     <td>KES{{ food.price }}</td>
                                     <td>{{ food.category }}</td>
-                                    <td>{{ food.archived }}</td>
                                     <td class="justify-content-end">
-
-                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                        <div class="" role="group" aria-label="Basic example">
                                             <a href="{% url 'smart_cafe_ui:change_food' pk=food.id %}"
-                                               class="btn btn-secondary">Edit</a>
+                                               class="">Edit &raquo;</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -70,35 +55,46 @@
                             </tbody>
                         </table>
                     </div>
-
-                    {% if is_paginated %}
-                        <nav class="mx-auto">
-                            <ul class="pagination justify-content-end">
-                                {% if page_obj.has_previous %}
-                                    <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}"
-                                                             class="page-link">&laquo; Previous</a></li>
-                                {% else %}
-                                    <li class="page-item disabled"><a href="#" class="page-link">&laquo; Previous</a>
-                                    </li>
-                                {% endif %}
-                                {% for i in paginator.page_range %}
-                                    {% if page_obj.number == i %}
-                                        <li class="page-item active"><a class="page-link" href="#">{{ i }} <span
-                                                class="sr-only">(current)</span></a></li>
-                                    {% else %}
-                                        <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
-                                    {% endif %}
-                                {% endfor %}
-                                {% if page_obj.has_next %}
-                                    <li class="page-item"><a class="page-link"
-                                                             href="?page={{ page_obj.next_page_number }}">Next
-                                        &raquo;</a></li>
-                                {% else %}
-                                    <li class="page-item disabled"><a href="#" class="page-link">Next &raquo;</a></li>
-                                {% endif %}
-                            </ul>
-                        </nav>
-                    {% endif %}
+                </div>
+            </div>
+            {% if is_paginated %}
+                <nav class="mx-auto">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}"
+                                                     class="page-link">&laquo; Previous</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><a href="#" class="page-link">&laquo; Previous</a>
+                            </li>
+                        {% endif %}
+                        {% for i in paginator.page_range %}
+                            {% if page_obj.number == i %}
+                                <li class="page-item active"><a class="page-link" href="#">{{ i }} <span
+                                        class="sr-only">(current)</span></a></li>
+                            {% else %}
+                                <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="?page={{ page_obj.next_page_number }}">Next
+                                &raquo;</a></li>
+                        {% else %}
+                            <li class="page-item disabled"><a href="#" class="page-link">Next &raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        </div>
+        <div class="col-12 col-md-4">
+            <div class="row">
+                <div class="col">
+                    <h4>Actions</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="{% url 'smart_cafe_ui:add_food' %}"><i class="mdi mdi-plus-box"></i> Add food&raquo;</a></li>
+                        <li class="list-group-item"><a href="#"><i class="mdi mdi-plus-box"></i> Add food category &raquo;</a></li>
+                        <li class="list-group-item"><a href="#"><i class="mdi mdi-view-list"></i> View food category &raquo;</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

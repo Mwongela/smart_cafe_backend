@@ -15,9 +15,23 @@
 
             <div class="card">
 
+
+
                 <div class="card-body">
 
-
+<div class="card-title text-muted">
+                        <div class="row">
+                            <div class="col">
+                                <p>List of all Menu Items</p>
+                            </div>
+                            <div class="col">
+                                <a href="{% url 'smart_cafe_ui:add_menu' %}" class="btn btn-primary float-right">
+                                    <i class="mdi mdi-plus-box"></i>
+                                    Add Food
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -26,5 +40,11 @@
         </div>
 
     </div>
+
+{% endblock %}
+
+{% block custom-scripts %}
+
+
 
 {% endblock %}

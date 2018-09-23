@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block page-title %}Add Menu{% endblock %}
+{% block breadcrumbs %}
+    <a href="{% url 'smart_cafe_ui:index' %}">Dashboard</a>
+    &raquo;
+    <a href="{% url 'smart_cafe_ui:menus' %}">Menu</a>
+    &raquo;
+    <a href="{% url 'smart_cafe_ui:add_menu' %}">Add Menu</a>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <div class="card">
+
+
+                <div class="card-body">
+
+                    <div class="card-title text-muted">
+                        <div class="row">
+                            <div class="col">
+                                <p>Add a New Menu Item</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col">
+
+                            <select name="items" id=""></select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block custom-scripts %}
+    <script src="{% static 'bower_components/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'bower_components/lodash/dist/lodash.min.js' %}"></script>
+    <script src="{% static 'js/rivets.bundled.min.js' %}"></script>
+    <script>
+        var MenuApp = (function () {
+
+            return {
+                init: function () {
+
+                }
+            }
+        })();
+
+        MenuApp.init();
+    </script>
+{% endblock %}

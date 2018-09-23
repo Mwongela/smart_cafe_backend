@@ -18,16 +18,15 @@ class FoodsView(LoginRequiredMixin, ListView):
     template_name = 'ui/foods.html'
     model = Food
     context_object_name = 'food_list'
-    paginate_by = 10
+    paginate_by = 14
     queryset = Food.objects.all().order_by('-id')
 
 
 class FoodAddView(LoginRequiredMixin, CreateView):
     model = Food
-    fields = ['name', 'calories', 'price', 'image', 'category', 'archived']
+    fields = ['name', 'calories', 'price', 'image', 'category']
     template_name = 'ui/add_food.html'
     success_url = reverse_lazy('ui:foods')
-
 
 
 class FoodChangeView(LoginRequiredMixin, UpdateView):
@@ -42,7 +41,7 @@ class MenusView(LoginRequiredMixin, TemplateView):
 
 
 class MenuAddView(LoginRequiredMixin, TemplateView):
-    pass
+    template_name = 'ui/add_menu.html'
 
 
 class MenuChangeView(LoginRequiredMixin, TemplateView):
