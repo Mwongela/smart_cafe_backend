@@ -47,7 +47,7 @@
                                     <td class="justify-content-end">
                                         <div class="" role="group" aria-label="Basic example">
                                             <a href="{% url 'smart_cafe_ui:change_food' pk=food.id %}"
-                                               class="">Edit &raquo;</a>
+                                               class=""><i class="mdi mdi-table-edit"></i> Edit</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -62,9 +62,9 @@
                     <ul class="pagination justify-content-center">
                         {% if page_obj.has_previous %}
                             <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}"
-                                                     class="page-link">&laquo; Previous</a></li>
+                                                     class="page-link"><i class="mdi mdi-arrow-left"></i> Back</a></li>
                         {% else %}
-                            <li class="page-item disabled"><a href="#" class="page-link">&laquo; Previous</a>
+                            <li class="page-item disabled"><a href="#" class="page-link"><i class="mdi mdi-arrow-left"></i> Back</a>
                             </li>
                         {% endif %}
                         {% for i in paginator.page_range %}
@@ -77,10 +77,9 @@
                         {% endfor %}
                         {% if page_obj.has_next %}
                             <li class="page-item"><a class="page-link"
-                                                     href="?page={{ page_obj.next_page_number }}">Next
-                                &raquo;</a></li>
+                                                     href="?page={{ page_obj.next_page_number }}">Next <i class="mdi mdi-arrow-right"></i></a></li>
                         {% else %}
-                            <li class="page-item disabled"><a href="#" class="page-link">Next &raquo;</a></li>
+                            <li class="page-item disabled"><a href="#" class="page-link">Next <i class="mdi mdi-arrow-right"></i></a></li>
                         {% endif %}
                     </ul>
                 </nav>
